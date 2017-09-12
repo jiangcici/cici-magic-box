@@ -1,0 +1,106 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red27\green31\blue34;\red10\green77\blue204;\red21\green23\blue26;
+\red244\green246\blue249;\red6\green33\blue79;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs64 \cf2 \expnd0\expndtw0\kerning0
+Choose this as our model: Namignizer\
+\pard\pardeftab720\partightenfactor0
+
+\b0\fs32 \cf2 Use a variation of the {\field{\*\fldinst{HYPERLINK "https://www.tensorflow.org/versions/r0.8/tutorials/recurrent/index.html#recurrent-neural-networks"}}{\fldrslt \cf3 PTB}} model to recognize and generate names using the {\field{\*\fldinst{HYPERLINK "https://www.kaggle.com/kaggle/us-baby-names"}}{\fldrslt \cf3 Kaggle Baby Name Database}}.\
+\pard\pardeftab720\partightenfactor0
+
+\b\fs40 \cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 API\
+\pard\pardeftab720\partightenfactor0
+
+\b0\fs32 \cf2 Namignizer is implemented in Tensorflow 0.8r and uses the python package 
+\f1\fs27\fsmilli13600 \cb4 pandas
+\f0\fs32 \cb1  for some data processing.\
+\pard\pardeftab720\partightenfactor0
+
+\b \cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 How to use\
+\pard\pardeftab720\partightenfactor0
+
+\b0 \cf2 Download the data from Kaggle and place it in your data directory (or use the small training data provided). The example data looks like so:\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs27\fsmilli13600 \cf2 \cb5 Id,Name,Year,Gender,Count\
+1,Mary,1880,F,7065\
+2,Anna,1880,F,2604\
+3,Emma,1880,F,2003\
+4,Elizabeth,1880,F,1939\
+5,Minnie,1880,F,1746\
+6,Margaret,1880,F,1578\
+7,Ida,1880,F,1472\
+8,Alice,1880,F,1414\
+9,Bertha,1880,F,1320\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf2 \cb1 But any data with the two columns: 
+\f1\fs27\fsmilli13600 \cb4 Name
+\f0\fs32 \cb1  and 
+\f1\fs27\fsmilli13600 \cb4 Count
+\f0\fs32 \cb1  will work.\
+With the data, we can then train the model:\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs27\fsmilli13600 \cf2 \cb5 train(\cf6 "data/SmallNames.txt"\cf2 , \cf6 "model/namignizer"\cf2 , SmallConfig)\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf2 \cb1 And you will get the output:\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs27\fsmilli13600 \cf2 \cb5 Reading Name data in data/SmallNames.txt\
+Epoch: 1 Learning rate: 1.000\
+0.090 perplexity: 18.539 speed: 282 lps\
+...\
+0.890 perplexity: 1.478 speed: 285 lps\
+0.990 perplexity: 1.477 speed: 284 lps\
+Epoch: 13 Train Perplexity: 1.477\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf2 \cb1 This will as a side effect write model checkpoints to the 
+\f1\fs27\fsmilli13600 \cb4 model
+\f0\fs32 \cb1  directory. With this you will be able to determine the perplexity your model will give you for any arbitrary set of names like so:\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs27\fsmilli13600 \cf2 \cb5 namignize([\cf6 "mary"\cf2 , \cf6 "ida"\cf2 , \cf6 "gazorpazorp"\cf2 , \cf6 "houyhnhnms"\cf2 , \cf6 "bob"\cf2 ],\
+  tf.train.latest_checkpoint(\cf6 "model"\cf2 ), SmallConfig)\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf2 \cb1 You will provide the same config and the same checkpoint directory. This will allow you to use a the model you just trained. You will then get a perplexity output for each name like so:\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs27\fsmilli13600 \cf2 \cb5 Name mary gives us a perplexity of 1.03105580807\
+Name ida gives us a perplexity of 1.07770049572\
+Name gazorpazorp gives us a perplexity of 175.940353394\
+Name houyhnhnms gives us a perplexity of 9.53870773315\
+Name bob gives us a perplexity of 6.03938627243\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf2 \cb1 Finally, you will also be able generate names using the model like so:\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs27\fsmilli13600 \cf2 \cb5 namignator(tf.train.latest_checkpoint(\cf6 "model"\cf2 ), SmallConfig)\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf2 \cb1 Again, you will need to provide the same config and the same checkpoint directory. This will allow you to use a the model you just trained. You will then get a single generated name. Examples of output that I got when using the provided data are:\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs27\fsmilli13600 \cf2 \cb5 ['b', 'e', 'r', 't', 'h', 'a', '`']\
+['m', 'a', 'r', 'y', '`']\
+['a', 'n', 'n', 'a', '`']\
+['m', 'a', 'r', 'y', '`']\
+['b', 'e', 'r', 't', 'h', 'a', '`']\
+['a', 'n', 'n', 'a', '`']\
+['e', 'l', 'i', 'z', 'a', 'b', 'e', 't', 'h', '`']\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf2 \cb1 Notice that each name ends with a backtick. This marks the end of the name.}
