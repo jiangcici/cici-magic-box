@@ -1,2 +1,3 @@
 # cici-magic-box
-Tensor Flow models revised.
+namignizer a tool for: recognize and generate names.
+Tensor Flow namignizer model is revised. We have modified the code and trained this for bigger dataset.
