@@ -1,4 +1,4 @@
-# cici-magic-box
+re# cici-magic-box
 # Namignizer
 
 Use a variation of the [PTB](https://www.tensorflow.org/versions/r0.8/tutorials/recurrent/index.html#recurrent-neural-networks) model to recognize and generate names using the [Kaggle Baby Name Database](https://www.kaggle.com/kaggle/us-baby-names).
@@ -78,5 +78,5 @@ Again, you will need to provide the same config and the same checkpoint director
 
 Notice that each name ends with a backtick. This marks the end of the name.
 
-### Contact Info
-Credits-k.nathaniel.tucker(at gmail)
+### Credits
+k.nathaniel.tucker(at gmail)
