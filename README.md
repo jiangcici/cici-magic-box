@@ -8,4 +8,4 @@ Tensor Flow models revised.
 In this assignment, we picked Namignizer Tensorflow model from the Github. We will modify the code and tweak the parameters for the better results. 
 
 For Initial training for the model we are using the Keggle Dataset. 
-
+To read more about Reccurent Neural Networks please check this link :- https://www.tensorflow.org/tutorials/recurrent#recurrent-neural-networks
