@@ -1,0 +1,1 @@
+go to Tensor flow link and clone it to your local PC. We have used Python tool Anaconda and then added TF on it. Check this link for the more information https://www.tensorflow.org/install/install_linux#InstallingAnaconda
