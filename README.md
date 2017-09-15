@@ -3,7 +3,7 @@ EC601 Group10 Homework 1
 
 Team member: Vikram Vikram, Yuxi Jiang, Yanxing Zhang
 
-Tensor Flow models revised.
+Tensor Flow model Namignizer revised. To use the model please check Note.md file
 
 In this assignment, we picked Namignizer Tensorflow model from the Github. We will modify the code and tweak the parameters for the better results. 
 Training the Neural Network:-
