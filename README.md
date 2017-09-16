@@ -15,3 +15,7 @@ We used dataset from https://www.kaggle.com/kaggle/us-baby-names. The source cod
 
 Name's database has three main feature: ["Name", "Gender", "Count]
 Data are arranged statewise and nationwise.
+
+After training we can get the output which can be seen as a side effect write model checkpoints to the model directory. After giving any arbitary sets of name while using the same model. We can have the output which shows the perplexity for each name. The output is like "Name xxxx gives us a perplexity of xxxxxxxxxx"
+
+Also, we can use this trained model which needs us to use the same config and checkpoint directory to generate the name. The output is like  ['m','a','r','y','`'].
