@@ -7,7 +7,7 @@ Tensor Flow model Namignizer revised. To use the model please check Note.md file
 
 In this assignment, we picked Namignizer Tensorflow model from the Github. We will modify the code and tweak the parameters for the better results. 
 Training the Neural Network:-
-For Initial training for the model we are using the Keggle Dataset. 
+For Initial training for the model we are using the Keggle Dataset. Code for this module is available in TF-Namignizer-Linux branch.
 To read more about Reccurent Neural Networks please check this link :- https://www.tensorflow.org/tutorials/recurrent#recurrent-neural-networks
 
 DATASET:-
